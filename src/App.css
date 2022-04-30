@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 h1 {
-	font-size: x-large;
+    font-size: x-large;
 	text-align: center;
 }
 
@@ -9,14 +9,16 @@ h1 {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 40px 0;
+    padding: 40px 0;
+    height: 100%;
 }
 
 .timeline-container::after {
-    background-color: #e17b77;
+    background-color: #a888e2;
     content: '';
     position: absolute;
     left: calc(50% - 2px);
+    top: 0;
     width: 4px;
     height: 100%;
 }
@@ -30,7 +32,7 @@ h1 {
     width: 50%;
 }
 
-.timeline-item:nth-child(odd) {
+.timeline-item.server {
     align-self: flex-end;
     justify-content: flex-start;
     padding-left: 30px;
@@ -63,12 +65,12 @@ h1 {
     height: 15px;
 }
 
-.timeline-item:nth-child(odd) .timeline-item-content {
+.timeline-item.server .timeline-item-content {
     text-align: left;
     align-items: flex-start;
 }
 
-.timeline-item:nth-child(odd) .timeline-item-content::after {
+.timeline-item.server .timeline-item-content::after {
     right: auto;
     left: -7.5px;
     box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -83,13 +85,13 @@ h1 {
 .timeline-item-content p {
     font-size: 16px;
     line-height: 24px;
-    padding: 5px 0;
+    padding: 4px 0;
     max-width: 250px;
 }
 
 .timeline-item-content .circle {
     background-color: #fff;
-    border: 3px solid #e17b77;
+    border: 3px solid #a888e2;
     border-radius: 50%;
     position: absolute;
     top: calc(50% - 10px);
@@ -97,9 +99,10 @@ h1 {
     width: 20px;
     height: 20px;
     z-index: 100;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-.timeline-item:nth-child(odd) .timeline-item-content .circle {
+.timeline-item.server .timeline-item-content .circle {
     right: auto;
     left: -40px;
 }
@@ -112,7 +115,7 @@ h1 {
 
 @media only screen and (max-width: 767px) {
     .timeline-item-content,
-    .timeline-item:nth-child(odd) .timeline-item-content {
+    .timeline-item.server .timeline-item-content {
         padding: 15px 10px;
         text-align: center;
         align-items: center;
@@ -121,4 +124,10 @@ h1 {
     .timeline-item-content time {
         margin-top: 20px;
     }
+}
+
+.hide {
+    overflow: hidden;
+    height: 0;
+    transition: height 1s ease;
 }
