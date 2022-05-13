@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [modelOpen, setModelOpen] = useState(true);
@@ -65,8 +66,8 @@ bg-red-400       bg-opacity-10
                 </button>
               </div>
               <div className="w-1/2 px-3">
-                <a
-                  href="/map"
+                <Link
+                  to="/map"
                   className="
                   block
                   text-center
@@ -82,7 +83,7 @@ bg-red-400       bg-opacity-10
                   "
                 >
                   Direct To Simulation
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -112,12 +113,12 @@ bg-red-400       bg-opacity-10
                   >
                     How this works &#8595;
                   </a>
-                  <a
+                  <Link
                     class="block w-full px-12 py-3 text-sm font-medium text-red-600 rounded shadow sm:w-auto hover:text-red-700 active:text-red-500 focus:outline-none focus:ring"
-                    href="/map"
+                    to="/map"
                   >
                     Let's start
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
