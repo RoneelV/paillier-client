@@ -1,40 +1,27 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Map from "./Components/Map";
+import Home from "./Components/Home";
 import "./App.css";
-import Form from "./Components/Form";
-import Timeline from "./Components/Timeline";
 import "leaflet/dist/leaflet.css";
-import Leaflet from "leaflet";
-import icon from "leaflet/dist/images/marker-icon.png";
+import { icon, Icon, Marker } from "leaflet";
+import icon1x from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import iconRetina from "leaflet/dist/images/marker-icon-2x.png";
 
-let DefaultIcon = Leaflet.icon({
-  ...Leaflet.Icon.Default.prototype.options,
-  iconUrl: icon,
+let DefaultIcon = icon({
+  ...Icon.Default.prototype.options,
+  iconUrl: icon1x,
   iconRetinaUrl: iconRetina,
   shadowUrl: iconShadow,
 });
-Leaflet.Marker.prototype.options.icon = DefaultIcon;
+Marker.prototype.options.icon = DefaultIcon;
 
 function App() {
-  const [data, setData] = useState([]);
-
-  function addCheckPoint(checkpoint) {
-    setData([...data, checkpoint]);
-  }
-
-  function startTimeline() {
-    setData([]);
-  }
-
   return (
-    <div className="w-full h-screen min-w-min min-h-min">
-      <Form addCheckPoint={addCheckPoint} startTimeline={startTimeline} />
-      <Timeline timelineData={data} />
-      <a href="https://geojson.io/#data=data:application/json,%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22properties%22%3A%7B%22name%22%3A%22Outer%20Bound%22%7D%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B30.222015380859375%2C59.88032391089786%5D%2C%5B30.489807128906254%2C59.88032391089786%5D%2C%5B30.489807128906254%2C60.01237340874596%5D%2C%5B30.222015380859375%2C60.01237340874596%5D%2C%5B30.222015380859375%2C59.88032391089786%5D%5D%5D%7D%7D%2C%7B%22type%22%3A%22Feature%22%2C%22properties%22%3A%7B%22name%22%3A%22Secret%20Base%20A%22%7D%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B30.436935424804688%2C59.94400716933027%5D%2C%5B30.455474853515625%2C59.94400716933027%5D%2C%5B30.455474853515625%2C59.953119365426296%5D%2C%5B30.436935424804688%2C59.953119365426296%5D%2C%5B30.436935424804688%2C59.94400716933027%5D%5D%5D%7D%7D%2C%7B%22type%22%3A%22Feature%22%2C%22properties%22%3A%7B%22name%22%3A%22Secret%20Base%20B%22%7D%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B30.278663635253903%2C59.9912602198758%5D%2C%5B30.298576354980465%2C59.9912602198758%5D%2C%5B30.298576354980465%2C60.00018776524735%5D%2C%5B30.278663635253903%2C60.00018776524735%5D%2C%5B30.278663635253903%2C59.9912602198758%5D%5D%5D%7D%7D%2C%7B%22type%22%3A%22Feature%22%2C%22properties%22%3A%7B%22name%22%3A%22Secret%20Base%20C%22%7D%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B30.29823303222656%2C59.90891042881661%5D%2C%5B30.31745910644531%2C59.90891042881661%5D%2C%5B30.31745910644531%2C59.91717182572497%5D%2C%5B30.29823303222656%2C59.91717182572497%5D%2C%5B30.29823303222656%2C59.90891042881661%5D%5D%5D%7D%7D%2C%7B%22type%22%3A%22Feature%22%2C%22properties%22%3A%7B%22name%22%3A%22Secret%20Base%20D%22%7D%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B30.462341308593746%2C59.97923856584643%5D%2C%5B30.48122406005859%2C59.97923856584643%5D%2C%5B30.48122406005859%2C59.988169354424066%5D%2C%5B30.462341308593746%2C59.988169354424066%5D%2C%5B30.462341308593746%2C59.97923856584643%5D%5D%5D%7D%7D%2C%7B%22type%22%3A%22Feature%22%2C%22properties%22%3A%7B%22name%22%3A%22Emergency%20Base%20E%22%7D%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B30.368270874023434%2C59.944523020896355%5D%2C%5B30.378570556640625%2C59.944523020896355%5D%2C%5B30.378570556640625%2C59.949681095129826%5D%2C%5B30.368270874023434%2C59.949681095129826%5D%2C%5B30.368270874023434%2C59.944523020896355%5D%5D%5D%7D%7D%2C%7B%22type%22%3A%22Feature%22%2C%22properties%22%3A%7B%22name%22%3A%22Emergency%20Base%20F%22%7D%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B30.23506164550781%2C59.93300042374631%5D%2C%5B30.245018005371094%2C59.93300042374631%5D%2C%5B30.245018005371094%2C59.93798830798394%5D%2C%5B30.23506164550781%2C59.93798830798394%5D%2C%5B30.23506164550781%2C59.93300042374631%5D%5D%5D%7D%7D%5D%7D">
-        GeoJSON
-      </a>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="map" element={<Map />} />
+    </Routes>
   );
 }
 
