@@ -8,31 +8,32 @@ const Home = () => {
       {modelOpen ? (
         <div
           className="
-bg-red-400       bg-opacity-10
-      fixed
-      top-0
-      left-0
-      w-full
-      min-h-screen
-      h-full
-      flex
-      items-center
-      justify-center
-      px-4
-      py-5
-      "
+        bg-red-400
+          bg-opacity-10
+          fixed
+          top-0
+          left-0
+          w-full
+          min-h-screen
+          h-full
+          flex
+          items-center
+          justify-center
+          px-4
+          py-5
+          "
         >
           <div
             className="
-         w-full
-         max-w-[570px]
-         rounded-[20px]
-         bg-white
-         py-12
-         px-8
-         md:py-[60px] md:px-[70px]
-         text-center
-         "
+            w-full
+            max-w-[570px]
+            rounded-[20px]
+            bg-white
+            py-12
+            px-8
+            md:py-[60px] md:px-[70px]
+            text-center
+            "
           >
             <h3 className="font-bold text-dark text-xl sm:text-2xl pb-2">
               Greetings, Agent Anon!
@@ -114,7 +115,7 @@ bg-red-400       bg-opacity-10
                     How this works &#8595;
                   </a>
                   <Link
-                    class="block w-full px-12 py-3 text-sm font-medium text-red-600 rounded shadow sm:w-auto hover:text-red-700 active:text-red-500 focus:outline-none focus:ring"
+                    className="block w-full px-12 py-3 text-sm font-medium text-red-600 rounded shadow sm:w-auto hover:text-red-700 active:text-red-500 focus:outline-none focus:ring"
                     to="/map"
                   >
                     Let's start
